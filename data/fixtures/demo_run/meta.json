@@ -1,0 +1,13 @@
+{
+  "fps": 15,
+  "width": 960,
+  "height": 540,
+  "focal_px": 720.0,
+  "gsd_m_per_px": 1.0,
+  "gsd_ref_altitude_m": 720.0,
+  "site_id": "demo-south-polar-a",
+  "model_id": "NASA-IBM LFM NAC LoRA \u00b7 precomputed",
+  "projection": "nadir",
+  "n_frames": 90,
+  "n_craters_catalog": 17
+}

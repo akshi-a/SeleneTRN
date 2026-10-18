@@ -1,0 +1,9 @@
+{
+  "site_id": "demo-south-polar-a",
+  "origin_lat_deg": -89.54,
+  "origin_lon_deg": 129.78,
+  "meters_per_deg_lat": 111132.954,
+  "meters_per_deg_lon": 892.2229541115895,
+  "gsd_m_per_px_ref": 1.0,
+  "description": "Demo-consistent south-polar style site. ENU origin and crater positions are internally consistent with the fixture imagery; they are not a claim of true lunar geodesy."
+}

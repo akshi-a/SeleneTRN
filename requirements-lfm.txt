@@ -1,0 +1,10 @@
+# Optional stack for regenerating crater-detection fixtures from NASA-IBM LFM.
+# The Streamlit demo does NOT need these. See scripts/generate_fixtures.md.
+torch
+terratorch
+huggingface_hub
+opencv-python-headless>=4.8
+numpy>=1.26
+pandas>=2.0
+tqdm
+pyyaml
