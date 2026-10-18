@@ -9,7 +9,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
-from core.engine import Engine, NavSolution
+from core.engine import SEARCH_RESIDUAL_M, Engine, NavSolution
 from inference.generate_demo import generate_all
 from inference.load_fixtures import FixtureRun, load_fixture_run
 
@@ -104,10 +104,21 @@ def render_optical(frame_bgr: np.ndarray, sol: NavSolution) -> np.ndarray:
     return vis
 
 
-def _fmt(value: float, spec: str, empty: str = "—") -> str:
+def _fmt(value: float, spec: str, unit: str = "", empty: str = "—") -> str:
     if value is None or not np.isfinite(value):
         return empty
-    return format(value, spec)
+    text = format(value, spec)
+    if unit:
+        return f'{text}<span class="unit">{unit}</span>'
+    return text
+
+
+def _fmt_residual(sol: NavSolution, empty: str = "—") -> str:
+    if sol.status == "SEARCH":
+        return empty
+    if not np.isfinite(sol.residual_m) or sol.residual_m >= SEARCH_RESIDUAL_M:
+        return empty
+    return _fmt(sol.residual_m, ".2f", "m")
 
 
 def residual_series(
@@ -273,19 +284,19 @@ def main() -> None:
             <div class="telem-grid">
               <div class="telem-item">
                 <div class="label">ALTITUDE</div>
-                <div class="value">{_fmt(sol.altitude_m, ".1f")}<span class="unit">m</span></div>
+                <div class="value">{_fmt(sol.altitude_m, ".1f", "m")}</div>
               </div>
               <div class="telem-item">
                 <div class="label">RESIDUAL</div>
-                <div class="value">{_fmt(sol.residual_m, ".2f")}<span class="unit">m</span></div>
+                <div class="value">{_fmt_residual(sol)}</div>
               </div>
               <div class="telem-item">
                 <div class="label">LAT</div>
-                <div class="value">{_fmt(sol.lat, ".5f")}<span class="unit">°</span></div>
+                <div class="value">{_fmt(sol.lat, ".5f", "°")}</div>
               </div>
               <div class="telem-item">
                 <div class="label">LON</div>
-                <div class="value">{_fmt(sol.lon, ".5f")}<span class="unit">°</span></div>
+                <div class="value">{_fmt(sol.lon, ".5f", "°")}</div>
               </div>
             </div>
             """,

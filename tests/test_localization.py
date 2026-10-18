@@ -158,6 +158,33 @@ def test_demo_fixtures_lock_with_filter() -> None:
     assert off.status == "SEARCH"
 
 
+def test_search_residual_renders_as_dash() -> None:
+    from app import _fmt_residual
+    from core.engine import NavSolution
+
+    search = NavSolution(
+        lat=float("nan"),
+        lon=float("nan"),
+        altitude_m=float("nan"),
+        residual_m=999.0,
+        match_count=0,
+        latency_ms=4.0,
+        status="SEARCH",
+    )
+    assert _fmt_residual(search) == "—"
+    lock = NavSolution(
+        lat=-89.54,
+        lon=129.78,
+        altitude_m=500.0,
+        residual_m=1.23,
+        match_count=6,
+        latency_ms=4.0,
+        status="LOCK",
+    )
+    assert "1.23" in _fmt_residual(lock)
+    assert "999" not in _fmt_residual(search)
+
+
 def test_sorted_ratios_scale_invariant() -> None:
     pts = np.array([[0.0, 0.0], [40.0, 0.0], [10.0, 30.0]])
     r1 = sorted_side_ratios(pts)

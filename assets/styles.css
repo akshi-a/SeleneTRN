@@ -72,7 +72,7 @@ label {
   font-family: Syne, "Segoe UI", sans-serif;
   font-weight: 800;
   font-size: 2.35rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   line-height: 1;
   color: var(--ink);
 }
@@ -81,7 +81,7 @@ label {
   margin-top: 0.35rem;
   font-size: 0.78rem;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 
 .status-cluster {
@@ -94,7 +94,7 @@ label {
   font-family: Syne, sans-serif;
   font-weight: 700;
   font-size: 1.35rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.04em;
 }
 
 .status-LOCK {
@@ -162,8 +162,8 @@ label {
 }
 
 .telem-item .label {
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
   color: var(--muted);
 }
 
@@ -185,7 +185,7 @@ label {
 .panel-label {
   font-family: Syne, sans-serif;
   font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.06em;
   color: var(--accent);
   margin: 0 0 0.45rem 0;
 }
@@ -193,7 +193,7 @@ label {
 .ids-list {
   font-size: 0.78rem;
   color: var(--ink);
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   line-height: 1.7;
 }
 
@@ -203,7 +203,7 @@ label {
   border-top: 1px solid var(--line);
   font-size: 0.72rem;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
 }
 
 .optical-wrap img {
@@ -216,7 +216,7 @@ div[data-testid="stCheckbox"] label,
 div[data-testid="stWidgetLabel"] p {
   font-family: "IBM Plex Mono", ui-monospace, monospace !important;
   font-size: 0.72rem !important;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.04em;
   color: var(--muted) !important;
 }
 
